@@ -5,10 +5,10 @@ import re
 from dotenv import load_dotenv
 from typing import List
 
-# key = os.environ.get("OPENAI_API_KEY")
 
 Max_input_len = 32
 load_dotenv()
+
 def main():
 
     parser = argparse.ArgumentParser()
@@ -29,7 +29,6 @@ def validate_len(prompt: str) -> bool:
     return len(prompt) <= Max_input_len
 
 def generate_keywords(prompt: str) -> List[str]:
-    # openai.api_key = "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"
     # try to get .env to work here. dont want key showing. 
     openai.api_key = os.getenv("OPENAI_API_KEY")
     brand_prompt = f"Generate related branding keywords for {prompt}: "
@@ -48,7 +47,6 @@ def generate_keywords(prompt: str) -> List[str]:
     return keywords_array
 
 def generate_brand_snippet(prompt: str):
-    # openai.api_key = "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"
     # try to get .env to work here. dont want key showing. 
     openai.api_key = os.getenv("OPENAI_API_KEY")
     brand_prompt = f"Generate upbeat branding snippet for {prompt}: "
